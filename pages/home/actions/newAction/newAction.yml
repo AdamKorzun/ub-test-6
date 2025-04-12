@@ -1,0 +1,136 @@
+id: '17443598437030.33704557623845377'
+kind: workflow
+name: newAction
+nameConfigured: false
+steps:
+  - id: '17443598862540.17237026613698747'
+    type: customAsyncCode
+    name: getData
+    params:
+      - type: asyncCode
+        value: ./getData.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+  - id: '17443607149210.5007129335451016'
+    type: customAsyncCode
+    name: conditionExecution
+    params:
+      - type: asyncCode
+        value: ./conditionExecution.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+  - id: '17443598501500.9926553594086304'
+    type: condition
+    name: condition
+    params:
+      - type: code
+        value: ./condition.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: steps
+        value:
+          - condition: true
+            steps:
+              - id: '17443599372080.729505895649182'
+                type: customAsyncCode
+                name: updateDataTrue
+                params:
+                  - type: asyncCode
+                    value: ./updateDataTrue.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 0
+                fallthroughError: false
+                isChanged: true
+                nameConfigured: true
+              - id: '17443599684610.30601680402555986'
+                type: putInStore
+                name: saveToStateTrue
+                params:
+                  - type: name
+                    value: '17443599754360.9766132635491271'
+                    valueType: string
+                  - type: value
+                    value: '{{data}}'
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                nameConfigured: true
+          - condition: false
+            steps:
+              - id: '17443599922150.5289299769598801'
+                type: customAsyncCode
+                name: updateDataFalse
+                params:
+                  - type: asyncCode
+                    value: ./updateDataFalse.js
+                    valueType: interpolatedValue
+                    interpolationType: code
+                level: 0
+                fallthroughError: false
+                isChanged: true
+                nameConfigured: true
+              - id: '17443600092260.6393442989725822'
+                type: putInStore
+                name: saveToStepFalse
+                params:
+                  - type: name
+                    value: '17443599754360.9766132635491271'
+                    valueType: string
+                  - type: value
+                    value: '{{data}}'
+                    valueType: interpolatedValue
+                    interpolationType: code
+                  - type: producible
+                    value: true
+                    valueType: custom
+                level: 1
+                fallthroughError: false
+                isChanged: true
+                nameConfigured: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17443598611580.8198693694942264'
+    type: customAsyncCode
+    name: accessValue
+    params:
+      - type: asyncCode
+        value: ./accessValue.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+mode: manual
+modeConfigured: false
+parentPageId: '1'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.newAction.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.newAction.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.newAction.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false

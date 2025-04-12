@@ -1,0 +1,15 @@
+id: '17443599754360.9766132635491271'
+kind: store_item
+name: stateVariable
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '1'
+storeItem:
+  value: 0
+  valueType: number
+  initialValue: 0
+  version: 1
+selected: false
+configured: true
